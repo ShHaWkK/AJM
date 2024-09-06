@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+header {
+    background: #f8f9fa;
+    padding: 20px 0;
+}
+
+header h1 {
+    float: left;
+    font-size: 24px;
+}
+
+header nav {
+    float: right;
+}
+
+header nav ul {
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.language-selector {
+    float: right;
+    margin-left: 15px;
+}
+
+.language-selector a {
+    color: #333;
+    text-decoration: none;
+}
+
+.hero {
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    padding: 100px 0;
+    text-align: center;
+    color: white;
+}
+
+.hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0072ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+.cta-button:hover {
+    background-color: #005bb5;
+}
+
+.services {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.services .service {
+    margin-bottom: 30px;
+}
+
+.services h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.testimonials {
+    padding: 50px 0;
+    background: #f8f9fa;
+}
+
+.testimonials blockquote {
+    font-style: italic;
+    border-left: 5px solid #0072ff;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}

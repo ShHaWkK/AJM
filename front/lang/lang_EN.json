@@ -1,0 +1,23 @@
+{
+    "title": "AJM Services - Web Creation, Maintenance, Security",
+    "home": "Home",
+    "services": "Services",
+    "contact": "Contact",
+    "login": "Login",
+    "homepage": {
+        "title": "AJM Services - Web Creation, Maintenance, Security",
+        "subtitle": "Professional services to help you grow, secure, and maintain your online presence.",
+        "cta": "Request a quote",
+        "our_services": "Our Services",
+        "web_creation": "Web Creation",
+        "web_creation_desc": "Modern and high-performing websites tailored to your needs.",
+        "maintenance": "Web Maintenance",
+        "maintenance_desc": "Ensure your website's stability and security with our continuous maintenance services.",
+        "security": "Web Security",
+        "security_desc": "We implement security solutions to protect your website and data from cyber attacks.",
+        "learn_more": "Learn More",
+        "testimonials": "Testimonials",
+        "testimonial_1": "AJM Services created an amazing website for our business.",
+        "testimonial_2": "Their security team protected our site from attacks."
+    }
+}
