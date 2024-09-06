@@ -8,7 +8,8 @@ if (headers_sent($filename, $linenum)) {
 }
 
 $supportedLanguages = ['EN', 'FR', 'ES', 'DE']; // Les langues supportées
-$languageDirectory = $_SERVER['DOCUMENT_ROOT'] . '/src/lang/'; // Répertoire des fichiers de langue
+$languageDirectory = $_SERVER['DOCUMENT_ROOT'] . '/src/lang/';
+
 
 // Définition de la langue de l'utilisateur
 $userLanguage = 'EN'; // Langue par défaut

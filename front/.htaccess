@@ -1,2 +1,13 @@
 ## Redirection vers la page 404.php
 ErrorDocument 404 /HTML/404.php
+
+Options -Indexes
+RewriteEngine On
+
+# Rediriger vers index.php pour toutes les requêtes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]
+
+# Gérer les erreurs 404
+ErrorDocument 404 /src/views/includes/404.php
