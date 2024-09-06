@@ -1,38 +1,40 @@
 <?php
 
+namespace Service;
+
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-class JWTService {
+class JWTService
+{
     private $secretKey;
-    private $expiration;
 
-    public function __construct() {
-        $config = json_decode(file_get_contents('/var/www/html/env.json'), true);
-        $this->secretKey = $config['JWT_SECRET'];
-        $this->expiration = $config['JWT_EXPIRATION'];
+    public function __construct($secretKey)
+    {
+        $this->secretKey = $secretKey;
     }
 
-    // Génère un JWT sécurisé
-    public function generateJWT($userId) {
+    public function generateToken($userId, $role)
+    {
         $issuedAt = time();
-        $expirationTime = $issuedAt + $this->expiration; 
+        $expirationTime = $issuedAt + 3600; // Token valable pour 1 heure
         $payload = [
-            'iss' => 'your-domain.com', 
-            'iat' => $issuedAt,         
-            'exp' => $expirationTime,   
-            'userId' => $userId        
+            'iat' => $issuedAt,
+            'exp' => $expirationTime,
+            'userId' => $userId,
+            'role' => $role
         ];
 
         return JWT::encode($payload, $this->secretKey, 'HS256');
     }
 
-    // Vérifie et décode un JWT
-    public function verifyJWT($token) {
+    public function verifyToken($token)
+    {
         try {
-            return JWT::decode($token, new Key($this->secretKey, 'HS256'));
-        } catch (Exception $e) {
-            return null; 
+            $decoded = JWT::decode($token, new Key($this->secretKey, 'HS256'));
+            return (array) $decoded;
+        } catch (\Exception $e) {
+            return false; // Si la vérification échoue
         }
     }
 
