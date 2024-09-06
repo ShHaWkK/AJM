@@ -10,6 +10,7 @@ class UserController {
     }
 
     public function processRequest($method, $uri) {
+        $input = json_decode(file_get_contents('php://input'), true);
         switch ($method) {
             case 'GET':
                 if (isset($uri[3])) {
@@ -19,20 +20,19 @@ class UserController {
                 }
                 break;
 
-                case 'POST':
-                    if (isset($uri[3]) && $uri[3] === 'approve') {
-                        $this->approveUser($uri[4]); 
-                    } elseif (isset($uri[3]) && $uri[3] === 'reject') {
-                        $this->rejectUser($uri[4]); 
-                    } else {
-                        $this->createUser($input['name'], $input['email'], $input['password']);
-                    }
-                    break;
+            case 'POST':
+                if (isset($uri[3]) && $uri[3] === 'approve') {
+                    $this->approveUser($uri[4]);
+                } elseif (isset($uri[3]) && $uri[3] === 'reject') {
+                    $this->rejectUser($uri[4]);
+                } else {
+                    $this->createUser($input['name'], $input['email'], $input['password'], $input['role_id']);
+                }
+                break;
 
             case 'PUT':
                 if (isset($uri[3])) {
                     $id = $uri[3];
-                    $input = json_decode(file_get_contents('php://input'), true);
                     $this->updateUser($id, $input['name'], $input['email']);
                 } else {
                     sendJsonResponse(['error' => 'User ID not provided'], 400);
@@ -41,8 +41,7 @@ class UserController {
 
             case 'DELETE':
                 if (isset($uri[3])) {
-                    $id = $uri[3];
-                    $this->deleteUser($id);
+                    $this->deleteUser($uri[3]);
                 } else {
                     sendJsonResponse(['error' => 'User ID not provided'], 400);
                 }
@@ -72,38 +71,21 @@ class UserController {
         }
     }
 
-    public function createUser($name, $email, $password, $roleId) {
+    private function createUser($name, $email, $password, $roleId) {
         if ($this->user->emailExists($email)) {
             sendJsonResponse(['message' => 'Email already exists'], 400);
             return;
         }
-    
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT); 
+
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
         if ($this->user->createUser($name, $email, $hashedPassword)) {
             $userId = $this->user->getLastInsertId();
-            $this->user->assignRole($userId, $roleId); 
+            $this->user->assignRole($userId, $roleId);
             sendJsonResponse(['message' => 'User created successfully'], 201);
         } else {
             sendJsonResponse(['message' => 'Failed to create user'], 500);
         }
     }
-    
-
-    public function emailExists($email) {
-        $user = $this->db->selectDB($this->table, "*", "email='$email'");
-        return !empty($user);
-    }
-    
-    
-    public function updateUserRole($userId, $roleId) {
-        $this->authorizeAdmin($this->getAuthenticatedUserId()); 
-        if ($this->user->assignRole($userId, $roleId)) {
-            sendJsonResponse(['message' => 'User role updated successfully']);
-        } else {
-            sendJsonResponse(['message' => 'Failed to update user role'], 500);
-        }
-    }
-    
 
     private function updateUser($id, $name, $email) {
         if ($this->user->updateUser($id, $name, $email)) {
@@ -122,16 +104,14 @@ class UserController {
     }
 
     private function approveUser($id) {
-        $this->authorizeAdmin($this->getAuthenticatedUserId()); 
         if ($this->user->approvedUser($id)) {
             sendJsonResponse(['message' => 'User approved successfully']);
         } else {
             sendJsonResponse(['message' => 'Failed to approve user'], 500);
         }
     }
-    
+
     private function rejectUser($id) {
-        $this->authorizeAdmin($this->getAuthenticatedUserId()); 
         if ($this->user->rejectUser($id)) {
             sendJsonResponse(['message' => 'User rejected successfully']);
         } else {
@@ -139,4 +119,5 @@ class UserController {
         }
     }
 }
+
 ?>
