@@ -14,7 +14,6 @@ function cleanUrl($url) {
 // Supprimer les paramètres de requête
 $request = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $request = cleanUrl($request);
-
 // Fonction pour vérifier l'authentification
 function requireAuth($jwtToken, $role) {
     try {
@@ -45,6 +44,7 @@ function requireAuth($jwtToken, $role) {
 $request = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); 
 
 switch ($request) {
+    case '':
     case '/':
     case '/HomePage':
         require __DIR__ . '/views/HomePage.php';
