@@ -8,6 +8,8 @@ header('Access-Control-Allow-Headers: Content-Type, Authorization');
 header('Access-Control-Allow-Origin: *');
 
 include_once './Controllers/UserController.php';
+include_once './Controllers/LoginController.php';
+include_once './Controllers/TicketController.php';
 
 $uri = explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 $requestMethod = $_SERVER['REQUEST_METHOD'];
@@ -26,8 +28,17 @@ if ($requestMethod === 'OPTIONS') {
 $controller = null;
 
 switch ($uri[2]) {
+    case '':
+        sendJsonResponse(['message' => 'Welcome to the API!'], 200);
+        break;
     case 'users':
         $controller = new UserController();
+        break;
+    case 'login':
+        $controller = new LoginController();
+        break;
+    case 'tickets':
+        $controller = new TicketController();
         break;
     default:
         sendJsonResponse(['error' => 'Route not found'], 404);
