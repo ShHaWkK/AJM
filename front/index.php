@@ -1,8 +1,46 @@
 <!-- file: index.php -->
 <?php
-ob_start(); 
+ob_start(); // Start output buffering
 
-require_once($_SERVER['DOCUMENT_ROOT'] . '/views/includes/header.php'); 
+require_once($_SERVER['DOCUMENT_ROOT'] . '/views/includes/lang.php'); // Inclusion de lang.php
+
+$jwtToken = isset($_COOKIE['jwt']) ? $_COOKIE['jwt'] : null;
+
+// Fonction pour nettoyer l'URL
+function cleanUrl($url) {
+    return $url === '/' ? $url : rtrim($url, '/');
+}
+
+// Supprimer les paramètres de requête
+$request = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$request = cleanUrl($request);
+
+// Fonction pour vérifier l'authentification
+function requireAuth($jwtToken, $role) {
+    try {
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/assets/js/modules/env.php');
+        // Appeler la fonction JavaScript authenticate
+        $authResponse = "<script type='module'>
+                            import { authenticate } from '/assets/js/api/Login.js';
+                            authenticate('{$jwtToken}', '{$role}').then(response => {
+                                if (!response.valid) {
+                                      alert(response.json());
+                                    window.location.href = '/Login'; 
+                                }
+                            }).catch(error => {
+                                console.error('Erreur : ', error.message);
+                                alert(error.message);
+                                window.location.href = '/Login'; 
+                            });
+                        </script>";
+        echo $authResponse;
+    } catch (Exception $e) {
+        echo "<script type='text/javascript'>console.error('PHP error : {$e->getMessage()}');</script>";
+        http_response_code(500);
+        exit;
+    }
+}
+
 
 $request = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); 
 
@@ -17,7 +55,7 @@ switch ($request) {
     case '/Contact':
         require __DIR__ . '/views/Contact.php';
         break;
-    case '/Login':
+    case '/login':
         require __DIR__ . '/views/Login/Login.php';
         break;
     default:

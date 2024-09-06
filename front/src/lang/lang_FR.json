@@ -1,10 +1,10 @@
 {
-    "title": "AJM Services - Création, Maintenance, Sécurité",
-    "home": "Accueil",
-    "services": "Services",
-    "contact": "Contact",
-    "login": "Connexion",
-    "homepage": {
+"title": "AJM Services - Création, Maintenance, Sécurité",
+"home": "Accueil",
+"services": "Services",
+"contact": "Contact",
+"login": "Connexion",
+"homepage": {
         "title": "AJM Services - Création de sites web, Maintenance, Sécurité",
         "subtitle": "Des services professionnels pour développer, sécuriser et maintenir votre présence en ligne.",
         "cta": "Demander un devis",
