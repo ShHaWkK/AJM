@@ -18,7 +18,7 @@ class LoginController {
         switch ($method) {
             case 'POST':
                 if ($uri[3] === 'login') {
-                    $this->login($input['email'], $input['password']); 
+                    $this->login($input['email'], $input['password']);
                 } elseif ($uri[3] === 'register') {
                     $this->register($input['name'], $input['email'], $input['password'], $input['role_id']);
                 } else {
@@ -32,7 +32,6 @@ class LoginController {
         }
     }
 
-    // Méthode pour l'inscription 
     private function register($name, $email, $password, $roleId) {
         if ($this->user->emailExists($email)) {
             sendJsonResponse(['message' => 'Email already exists'], 400);
@@ -42,19 +41,18 @@ class LoginController {
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
         if ($this->user->createUser($name, $email, $hashedPassword)) {
             $userId = $this->user->getLastInsertId();
-            $this->user->assignRole($userId, $roleId); 
+            $this->user->assignRole($userId, $roleId);
             sendJsonResponse(['message' => 'User registered successfully'], 201);
         } else {
             sendJsonResponse(['message' => 'Failed to register user'], 500);
         }
     }
 
-    // Méthode pour la connexion des utilisateurs
     private function login($email, $password) {
         $user = $this->user->getUserByEmail($email);
 
         if ($user && password_verify($password, $user['password'])) {
-            $token = $this->jwtService->generateJWT($user['id']); // Générer un jeton JWT
+            $token = $this->jwtService->generateJWT($user['id']);
             sendJsonResponse(['message' => 'Login successful', 'token' => $token]);
         } else {
             sendJsonResponse(['message' => 'Invalid email or password'], 401);
