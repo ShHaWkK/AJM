@@ -1,17 +1,5 @@
 <?php
-// file: views/includes/header.php
-
-// Définir la langue par défaut
-$lang = isset($_GET['lang']) ? $_GET['lang'] : 'fr';
-
-// Charger le fichier de langue approprié
-$langFile = $_SERVER['DOCUMENT_ROOT'] . "/lang/lang_{$lang}.json";
-if (file_exists($langFile)) {
-    $lang_data = json_decode(file_get_contents($langFile), true);
-} else {
-    $lang_data = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/lang/lang_fr.json"), true); // Par défaut en français
-}
-
+require_once($_SERVER['DOCUMENT_ROOT'] . '/views/includes/lang.php');
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $lang; ?>">
