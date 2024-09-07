@@ -11,7 +11,7 @@
     </head>
 <body>
 
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/src/views/includes/header.php'); ?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 
 <section class="hero">
     <div class="container">
