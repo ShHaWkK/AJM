@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $lang_data['title']; ?></title>
     <link rel="stylesheet" href="/assets/CSS/styles.css">
-    </head>
-<body>
+</head>
 
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); ?>
 
+<body>
 <section class="hero">
     <div class="container">
         <h2><?php echo $lang_data['homepage']['title']; ?></h2>
