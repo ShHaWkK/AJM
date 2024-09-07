@@ -1,10 +1,13 @@
 {
-"title": "AJM Services - Création, Maintenance, Sécurité",
-"home": "Accueil",
-"services": "Services",
-"contact": "Contact",
-"login": "Connexion",
-"homepage": {
+    "title": "AJM Services - Création, Maintenance, Sécurité",
+    "home": "Accueil",
+    "services": "Services",
+    "contact": "Contact",
+    "login": "Connexion",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "forgot_password": "Mot de passe oublié?",
+    "homepage": {
         "title": "AJM Services - Création de sites web, Maintenance, Sécurité",
         "subtitle": "Des services professionnels pour développer, sécuriser et maintenir votre présence en ligne.",
         "cta": "Demander un devis",
@@ -19,16 +22,15 @@
         "testimonials": "Témoignages",
         "testimonial_1": "AJM Services a créé un site web incroyable pour notre entreprise.",
         "testimonial_2": "Leur équipe de sécurité a protégé notre site contre les attaques."
-    }, 
-    "name": "Nom",
-    "email": "E-mail",
-    "message": "Message",
-    "password": "Mot de passe",
-    "cta": "Demander un devis",
-
-"404":{
-        "cta":"Retour à l'accueil",
-        "title":"Page non trouvée", 
-        "message":"La page que vous cherchez n'existe pas."
-    } 
+    },
+    "404": {
+        "cta": "Retour à l'accueil",
+        "title": "Page non trouvée",
+        "message": "La page que vous cherchez n'existe pas."
+    },
+    "contact_form": {
+        "title": "Contactez-nous",
+        "subtitle": "Nous serions ravis de vous aider. Envoyez-nous un message et nous vous répondrons dans les plus brefs délais.",
+        "send": "Envoyer"
+    }
 }

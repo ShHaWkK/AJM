@@ -1,34 +1,36 @@
 {
-    "title": "AJM Services - Web Creation, Maintenance, Security",
+    "title": "AJM Services - Creation, Maintenance, Security",
     "home": "Home",
     "services": "Services",
     "contact": "Contact",
     "login": "Login",
+    "email": "Email",
+    "password": "Password",
+    "forgot_password": "Forgot your password?",
     "homepage": {
-        "title": "AJM Services - Web Creation, Maintenance, Security",
-        "subtitle": "Professional services to help you grow, secure, and maintain your online presence.",
+        "title": "AJM Services - Website Creation, Maintenance, Security",
+        "subtitle": "Professional services to develop, secure, and maintain your online presence.",
         "cta": "Request a quote",
         "our_services": "Our Services",
-        "web_creation": "Web Creation",
-        "web_creation_desc": "Modern and high-performing websites tailored to your needs.",
+        "web_creation": "Website Creation",
+        "web_creation_desc": "Modern, high-performance websites tailored to your needs.",
         "maintenance": "Web Maintenance",
-        "maintenance_desc": "Ensure your website's stability and security with our continuous maintenance services.",
+        "maintenance_desc": "Ensure the stability and security of your website.",
         "security": "Web Security",
-        "security_desc": "We implement security solutions to protect your website and data from cyber attacks.",
-        "learn_more": "Learn More",
+        "security_desc": "We implement security solutions to protect your data.",
+        "learn_more": "Learn more",
         "testimonials": "Testimonials",
-        "testimonial_1": "AJM Services created an amazing website for our business.",
+        "testimonial_1": "AJM Services created an amazing website for our company.",
         "testimonial_2": "Their security team protected our site from attacks."
-    }, 
-    "name": "Name",
-    "email": "Email",
-    "message": "Message",
-    "password": "Password",
-    "cta": "Request a Quote", 
-
-    "404":{
+    },
+    "404": {
         "cta": "Back to home",
-        "title": "Page not found", 
+        "title": "Page not found",
         "message": "The page you are looking for does not exist."
-    } 
+    },
+    "contact_form": {
+        "title": "Contact Us",
+        "subtitle": "We'd love to help. Send us a message and we'll get back to you as soon as possible.",
+        "send": "Send"
+    }
 }
