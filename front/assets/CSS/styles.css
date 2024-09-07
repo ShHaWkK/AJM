@@ -32,46 +32,6 @@ a:hover {
     color: var(--secondary-color);
 }
 
-/* Header */
-header {
-    background: var(--dark-color);
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-header h1 {
-    color: var(--light-color);
-    font-size: 2rem;
-    text-align: center;
-    font-weight: 600;
-}
-
-header nav ul {
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
-}
-
-header nav ul li {
-    margin: 0 15px;
-}
-
-header nav ul li a {
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: var(--dark-color);
-    color: var(--light-color);
-    transition: background-color var(--transition-speed), color var(--transition-speed);
-}
-
-header nav ul li a:hover {
-    background-color: var(--primary-color);
-    color: var(--light-color);
-}
 
 /* Hero Section */
 .hero {
@@ -179,32 +139,6 @@ header nav ul li a:hover {
     right: 10px;
 }
 
-/* Footer */
-footer {
-    padding: 20px 0;
-    background-color: var(--dark-color);
-    color: var(--light-color);
-    text-align: center;
-}
-
-footer ul {
-    list-style-type: none;
-}
-
-footer ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-footer ul li a {
-    color: var(--light-color);
-    font-size: 1.2rem;
-    transition: color var(--transition-speed);
-}
-
-footer ul li a:hover {
-    color: var(--primary-color);
-}
 
 /* Animations */
 @keyframes fadeIn {
