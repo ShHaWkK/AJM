@@ -1,4 +1,5 @@
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/src/views/includes/lang.php'); ?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/front/src/views/includes/lang.php'); ?>
+
 
 <!DOCTYPE html>
 <html lang="<?php echo strtolower($lang); ?>">
@@ -7,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - AJM Services</title>
     <link rel="stylesheet" href="/assets/CSS/styles.css">
+    <link rel="stylesheet" href="/assets/CSS/contact.css">
 </head>
 <body>
 

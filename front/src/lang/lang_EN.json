@@ -24,5 +24,10 @@
     "email": "Email",
     "message": "Message",
     "password": "Password",
-    "cta": "Request a Quote"
+    "cta": "Request a Quote", 
+
+    "404":{
+        "cta": "Back to home",
+        "title": "Page not found"
+    } 
 }

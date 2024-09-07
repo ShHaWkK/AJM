@@ -24,5 +24,10 @@
     "email": "E-mail",
     "message": "Message",
     "password": "Mot de passe",
-    "cta": "Demander un devis"
+    "cta": "Demander un devis",
+
+"404":{
+        "cta":"Retour à l'accueil",
+        "title":"Page non trouvée"
+    } 
 }
