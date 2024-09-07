@@ -27,9 +27,10 @@ switch ($request) {
     case '/Contact':
         require __DIR__ . '/src/views/Contact.php';  // Ensure Contact.php exists
         break;
+    case '/Login':
     case '/login':
-        require __DIR__ . '/src/views/Login/Login.php';  // Ensure Login.php exists
-        break;
+        require __DIR__ . '/src/views/Login/Login.php';
+        break;  
     default:
         http_response_code(404);
         require __DIR__ . '/src/views/404.php';  
