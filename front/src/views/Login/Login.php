@@ -1,4 +1,4 @@
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/front/src/views/includes/lang.php'); ?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/src/views/includes/lang.php'); ?>
 
 <!DOCTYPE html>
 <html lang="<?php echo strtolower($lang); ?>">

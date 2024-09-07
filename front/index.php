@@ -32,7 +32,7 @@ switch ($request) {
         break;
     default:
         http_response_code(404);
-        require __DIR__ . '/src/views/404.php';  // Ensure 404.php exists
+        require __DIR__ . '/src/views/404.php';  
         break;
 }
 

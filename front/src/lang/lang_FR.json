@@ -28,6 +28,7 @@
 
 "404":{
         "cta":"Retour à l'accueil",
-        "title":"Page non trouvée"
+        "title":"Page non trouvée", 
+        "message":"La page que vous cherchez n'existe pas."
     } 
 }
