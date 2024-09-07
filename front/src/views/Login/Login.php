@@ -16,7 +16,7 @@
     <div class="wrapper">  <!-- Ajout du wrapper ici -->
         <section class="login-section">
             <div class="container">
-                <h2><?php echo isset($langData['login']) ? $langData['login'] : 'Login'; ?></h2>
+                <h2><?php echo isset($langData['login2']) ? $langData['login2'] : 'Login'; ?></h2>
                 <?php if (isset($error_message)): ?>
                     <div class="error-message"><?php echo $error_message; ?></div>
                 <?php endif; ?>
@@ -29,7 +29,7 @@
                         <label for="password"><?php echo isset($langData['password']) ? $langData['password'] : 'Password'; ?></label>
                         <input type="password" id="password" name="password" required>
                     </div>
-                    <button type="submit" class="cta-button"><?php echo isset($langData['login']) ? $langData['login'] : 'Login'; ?></button>
+                    <button type="submit" class="cta-button"><?php echo isset($langData['login3']) ? $langData['login3'] : 'Login'; ?></button>
                 </form>
                 <p>
                     <?php 

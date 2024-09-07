@@ -9,7 +9,9 @@
     "forgot_password": "Forgot your password?",
     "name": "Name",  
     "message": "Message",
-    "cta": "Send a message",  
+    "cta": "Send a message",
+    "login2": "Login",
+    "login3": "Sign In",
     "homepage": {
         "title": "AJM Services - Website Creation, Maintenance, Security",
         "subtitle": "Professional services to develop, secure, and maintain your online presence.",

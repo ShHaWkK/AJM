@@ -10,6 +10,8 @@
     "name": "Nom",  
     "message": "Message",
     "cta": "Envoyer un message",
+    "login2": "Connexion",
+    "login3": "Se connecter",
     "homepage": {
         "title": "AJM Services - Création de sites web, Maintenance, Sécurité",
         "subtitle": "Des services professionnels pour développer, sécuriser et maintenir votre présence en ligne.",
