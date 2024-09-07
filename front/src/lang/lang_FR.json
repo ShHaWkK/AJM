@@ -7,6 +7,9 @@
     "email": "E-mail",
     "password": "Mot de passe",
     "forgot_password": "Mot de passe oublié?",
+    "name": "Nom",  
+    "message": "Message",
+      
     "homepage": {
         "title": "AJM Services - Création de sites web, Maintenance, Sécurité",
         "subtitle": "Des services professionnels pour développer, sécuriser et maintenir votre présence en ligne.",
