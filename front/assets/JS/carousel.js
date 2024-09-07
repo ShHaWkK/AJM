@@ -2,25 +2,35 @@
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-item');
 const totalSlides = slides.length;
+let isTransitioning = false; // To prevent multiple transitions at once
 
 function updateCarouselPosition() {
     const carouselSlide = document.querySelector('.carousel-slide');
+    carouselSlide.style.transition = 'transform 0.8s ease-in-out'; 
     carouselSlide.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+    setTimeout(() => {
+        isTransitioning = false;
+    }, 800); 
 }
 
 function moveSlide(direction) {
-    currentSlide += direction;
+    if (!isTransitioning) {
+        isTransitioning = true;
+        currentSlide += direction;
 
-    if (currentSlide >= totalSlides) {
-        currentSlide = 0;
-    } else if (currentSlide < 0) {
-        currentSlide = totalSlides - 1;
+        // Loop back to the beginning/end
+        if (currentSlide >= totalSlides) {
+            currentSlide = 0;
+        } else if (currentSlide < 0) {
+            currentSlide = totalSlides - 1;
+        }
+
+        updateCarouselPosition();
     }
-
-    updateCarouselPosition();
 }
 
-// Auto-play the carousel
+
 setInterval(() => {
     moveSlide(1);
-}, 3000);
+}, 7000); 
