@@ -1,3 +1,4 @@
+/* header.css */
 :root {
     --primary-color: #3498db;
     --secondary-color: #2ecc71;
@@ -5,7 +6,6 @@
     --light-color: #ecf0f1;
     --font-family: 'Roboto', sans-serif;
     --transition-speed: 0.3s;
-    --header-height: 80px;
 }
 
 /* Base global settings */
@@ -22,10 +22,10 @@ body {
 
 header {
     background: var(--dark-color);
-    position: fixed;
+    padding: 20px 0;
+    position: sticky;
     top: 0;
     width: 100%;
-    height: var(--header-height);
     z-index: 1000;
     transition: height 0.3s ease-in-out;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
