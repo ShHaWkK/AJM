@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="/assets/CSS/login.css">
 </head>
 
-<?php require_once(__DIR__ . '/includes/header.php'); ?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/src/views/includes/header.php'); ?>
+
 <body>
 <section class="login-form">
     <div class="container">
