@@ -7,14 +7,12 @@ if (headers_sent($filename, $linenum)) {
     exit;
 }
 
-$supportedLanguages = ['EN', 'FR', 'ES', 'DE']; // Les langues supportées
+$supportedLanguages = ['EN', 'FR', 'ES', 'DE']; // Supported languages
 $languageDirectory = $_SERVER['DOCUMENT_ROOT'] . '/src/lang/';
 
+$userLanguage = 'EN'; // Default language
 
-// Définition de la langue de l'utilisateur
-$userLanguage = 'EN'; // Langue par défaut
-
-// Détection de la langue à partir de la requête, des cookies ou du navigateur
+// Detect language from request, cookie, or browser
 if (isset($_GET["lang"]) && in_array(strtoupper($_GET['lang']), $supportedLanguages)) {
     $userLanguage = strtoupper($_GET['lang']);
     setcookie("lang", $userLanguage, time() + 365 * 24 * 3600, "/"); 
@@ -28,12 +26,12 @@ if (isset($_GET["lang"]) && in_array(strtoupper($_GET['lang']), $supportedLangua
     setcookie("lang", $userLanguage, time() + 365 * 24 * 3600, "/");
 }
 
-// Chargement du fichier de langue correspondant
+// Load corresponding language file
 $userLanguageFile = $languageDirectory . "lang_" . $userLanguage . ".json";
 
 if (file_exists($userLanguageFile)) {
     $file = file_get_contents($userLanguageFile);
-    $lang_data = json_decode($file, true); // On assigne les données à la variable $lang_data
+    $lang_data = json_decode($file, true); // Assign language data to $lang_data
     
     if (json_last_error() !== JSON_ERROR_NONE) {
         echo "JSON Error: " . json_last_error_msg();
@@ -44,9 +42,3 @@ if (file_exists($userLanguageFile)) {
     exit;
 }
 ?>
-<script>
-// Fonction pour changer la langue
-function changeLanguage(lang) {
-    window.location.href = window.location.pathname + "?lang=" + lang;
-}
-</script>

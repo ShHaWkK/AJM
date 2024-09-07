@@ -1,12 +1,11 @@
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/front/src/views/includes/lang.php'); ?>
-
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/src/views/includes/lang.php'); ?>
 
 <!DOCTYPE html>
-<html lang="<?php echo strtolower($lang); ?>">
+<html lang="<?php echo strtolower($userLanguage); ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - AJM Services</title>
+    <title><?php echo $lang_data['contact']; ?> - AJM Services</title>
     <link rel="stylesheet" href="/assets/CSS/styles.css">
     <link rel="stylesheet" href="/assets/CSS/contact.css">
 </head>
