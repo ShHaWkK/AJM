@@ -19,5 +19,10 @@
         "testimonials": "Testimonials",
         "testimonial_1": "AJM Services created an amazing website for our business.",
         "testimonial_2": "Their security team protected our site from attacks."
-    }
+    }, 
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "password": "Password",
+    "cta": "Request a Quote"
 }

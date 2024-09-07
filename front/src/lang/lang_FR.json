@@ -19,5 +19,10 @@
         "testimonials": "Témoignages",
         "testimonial_1": "AJM Services a créé un site web incroyable pour notre entreprise.",
         "testimonial_2": "Leur équipe de sécurité a protégé notre site contre les attaques."
-    }
+    }, 
+    "name": "Nom",
+    "email": "E-mail",
+    "message": "Message",
+    "password": "Mot de passe",
+    "cta": "Demander un devis"
 }
