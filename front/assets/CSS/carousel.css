@@ -1,62 +1,72 @@
-/* carousel.css */
-.services-carousel {
+/* Carousel container */
+.carousel {
     position: relative;
     max-width: 100%;
-    overflow: hidden;
-    margin: 50px 0;
-}
-
-.carousel-container {
-    position: relative;
-    width: 100%;
+    margin: 40px auto;
     overflow: hidden;
 }
 
+/* Carousel inner slide wrapper */
 .carousel-slide {
     display: flex;
-    width: 300%;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.8s ease-in-out;
 }
 
+/* Individual slide */
 .carousel-item {
-    width: 100%;
-    padding: 40px;
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #f4f4f4;
     text-align: center;
-    background-color: #f9f9f9;
 }
 
 .carousel-item h4 {
-    font-size: 1.8em;
-    margin-bottom: 20px;
-    color: var(--primary-color);
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .carousel-item p {
-    font-size: 1.1em;
-    margin-bottom: 30px;
+    font-size: 16px;
     color: #333;
 }
 
-.carousel-button {
+/* Navigation arrows */
+.carousel-prev,
+.carousel-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.5);
     color: white;
+    font-size: 30px;
     border: none;
-    padding: 10px;
     cursor: pointer;
-    z-index: 100;
+    padding: 10px;
+    z-index: 10;
 }
 
-.carousel-button.prev {
+.carousel-prev {
     left: 10px;
 }
 
-.carousel-button.next {
+.carousel-next {
     right: 10px;
 }
 
-.carousel-button:hover {
+/* Arrow hover effect */
+.carousel-prev:hover,
+.carousel-next:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Optional: responsive for mobile */
+@media (max-width: 768px) {
+    .carousel-item h4 {
+        font-size: 18px;
+    }
+
+    .carousel-item p {
+        font-size: 14px;
+    }
 }

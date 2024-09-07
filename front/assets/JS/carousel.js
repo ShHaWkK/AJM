@@ -2,7 +2,7 @@
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-item');
 const totalSlides = slides.length;
-let isTransitioning = false; // To prevent multiple transitions at once
+let isTransitioning = false; 
 
 function updateCarouselPosition() {
     const carouselSlide = document.querySelector('.carousel-slide');
