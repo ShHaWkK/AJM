@@ -1,0 +1,68 @@
+/* header.css */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --font-family: 'Roboto', sans-serif;
+    --transition-speed: 0.3s;
+}
+
+header {
+    background: var(--dark-color);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header h1 {
+    color: var(--light-color);
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+header nav ul li a:hover {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+.language-selector {
+    margin-top: 10px;
+    text-align: center;
+    color: var(--light-color);
+}
+
+.language-selector a {
+    color: var(--light-color);
+    padding: 0 5px;
+    font-weight: bold;
+    transition: color var(--transition-speed);
+}
+
+.language-selector a:hover {
+    color: var(--secondary-color);
+}

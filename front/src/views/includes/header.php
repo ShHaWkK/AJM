@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/views/includes/lang.php');
+require_once(__DIR__ . '/lang.php'); // Corrected path for lang.php
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $lang; ?>">
@@ -7,7 +7,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views/includes/lang.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $lang_data['title']; ?></title>
-    <link rel="stylesheet" href="../../assets/CSS/styles.css">
+    <link rel="stylesheet" href="../../assets/CSS/header.css">
 </head>
     <header>
         <div class="container">
