@@ -9,10 +9,9 @@
     <link rel="stylesheet" href="/assets/CSS/styles.css">
     <link rel="stylesheet" href="/assets/CSS/login.css">
 </head>
+
+<?php require_once(__DIR__ . '/includes/header.php'); ?>
 <body>
-
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/src/views/includes/header.php'); ?>
-
 <section class="login-form">
     <div class="container">
         <h2><?php echo $lang_data['login']; ?></h2>
