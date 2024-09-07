@@ -1,4 +1,5 @@
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/views/includes/lang.php'); ?>
+<!-- file: HomePage.php -->
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/src/views/includes/lang.php'); ?>
 
 <!DOCTYPE html>
 <html lang="<?php echo strtolower($userLanguage); ?>">
@@ -6,11 +7,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $lang_data['title']; ?></title>
-    <link rel="stylesheet" href="../assets/CSS/styles.css">
+    <link rel="stylesheet" href="/assets/CSS/styles.css">
 </head>
 <body>
 
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/views/includes/header.php'); ?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/src/views/includes/header.php'); ?>
 
 <section class="hero">
     <div class="container">
@@ -53,7 +54,7 @@
     </div>
 </section>
 
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/views/includes/footer.php'); ?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/src/views/includes/footer.php'); ?>
 
 </body>
 </html>
