@@ -1,28 +1,36 @@
 <?php
 
 include_once '../Models/Ticket.php';
+include_once '../Middleware/AuthMiddleware.php';
 
 class TicketController {
     private $ticket;
+    private $authMiddleware;
 
     public function __construct() {
         $this->ticket = new Ticket();
+        $this->authMiddleware = new AuthMiddleware();
     }
 
     public function processRequest($method, $uri) {
         $input = json_decode(file_get_contents('php://input'), true);
 
         switch ($method) {
-            case 'GET':
-                if (isset($uri[3])) {
-                    $this->getTicketById($uri[3]);
-                } else {
-                    $this->getAllTickets();
-                }
+            case 'POST':
+                // Seuls les clients peuvent créer des tickets
+                $this->authMiddleware->checkRole('client');
+                $this->createTicket($input['subject'], $input['description'], $input['user_id']);
                 break;
 
-            case 'POST':
-                $this->createTicket($input['subject'], $input['description'], $input['user_id']);
+            case 'GET':
+                // Admins et clients peuvent voir les tickets
+                if ($this->authMiddleware->checkRole('admin') || $this->authMiddleware->checkRole('client')) {
+                    if (isset($uri[3])) {
+                        $this->getTicketById($uri[3]);
+                    } else {
+                        $this->getAllTickets();
+                    }
+                }
                 break;
 
             case 'PUT':

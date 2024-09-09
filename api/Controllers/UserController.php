@@ -1,18 +1,24 @@
 <?php
 
 include_once '../Models/User.php';
+include_once '../Middleware/AuthMiddleware.php';
 
 class UserController {
     private $user;
+    private $authMiddleware;
 
     public function __construct() {
         $this->user = new User();
+        $this->authMiddleware = new AuthMiddleware();
     }
+
 
     public function processRequest($method, $uri) {
         $input = json_decode(file_get_contents('php://input'), true);
         switch ($method) {
             case 'GET':
+                // Seuls les administrateurs peuvent accéder à tous les utilisateurs
+                $this->authMiddleware->checkRole('admin');
                 if (isset($uri[3])) {
                     $this->getUserById($uri[3]);
                 } else {
@@ -20,15 +26,17 @@ class UserController {
                 }
                 break;
 
-            case 'POST':
-                if (isset($uri[3]) && $uri[3] === 'approve') {
-                    $this->approveUser($uri[4]);
-                } elseif (isset($uri[3]) && $uri[3] === 'reject') {
-                    $this->rejectUser($uri[4]);
-                } else {
-                    $this->createUser($input['name'], $input['email'], $input['password'], $input['role_id']);
-                }
-                break;
+                case 'POST':
+                    if (isset($uri[3]) && $uri[3] === 'approve') {
+                        $this->authMiddleware->checkRole('admin'); // Seuls les admins approuvent
+                        $this->approveUser($uri[4]);
+                    } elseif (isset($uri[3]) && $uri[3] === 'reject') {
+                        $this->authMiddleware->checkRole('admin'); // Seuls les admins rejettent
+                        $this->rejectUser($uri[4]);
+                    } else {
+                        $this->createUser($input['name'], $input['email'], $input['password'], $input['role_id']);
+                    }
+                    break;
 
             case 'PUT':
                 if (isset($uri[3])) {
