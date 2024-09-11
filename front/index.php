@@ -19,13 +19,13 @@ switch ($request) {
     case '':
     case '/':
     case '/HomePage':
-        require __DIR__ . '/src/views/HomePage.php';  // Updated path
+        require __DIR__ . '/src/views/HomePage.php';  
         break;
     case '/Services':
-        require __DIR__ . '/src/views/Services.php';  // Ensure Services.php exists
+        require __DIR__ . '/src/views/Services.php'; 
         break;
     case '/Contact':
-        require __DIR__ . '/src/views/Contact.php';  // Ensure Contact.php exists
+        require __DIR__ . '/src/views/Contact.php';  
         break;
     case '/Login':
     case '/login':
@@ -37,6 +37,6 @@ switch ($request) {
         break;
 }
 
-require_once(__DIR__ . '/src/views/includes/footer.php');  // Updated path
+require_once(__DIR__ . '/src/views/includes/footer.php');
 
 ob_end_flush(); 

@@ -2,16 +2,15 @@
 Options +FollowSymLinks
 RewriteEngine On
 
-# Assurez-vous que les fichiers et dossiers existants sont servis directement
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-# Sinon, redirigez toutes les requêtes vers index.php
+# redirigez toutes les requêtes vers index.php
 RewriteRule ^(.*)$ index.php [L,QSA]
 
 # Désactiver l'indexation des répertoires
 Options -Indexes
 
-
 # Gérer les erreurs 404
 ErrorDocument 404 /src/views/404.php
+
