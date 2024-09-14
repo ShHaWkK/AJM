@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $lang_data['contact']; ?> - AJM Services</title>
-    <link rel="stylesheet" href="/assets/CSS/styles.css">
     <link rel="stylesheet" href="/assets/CSS/contact.css">
 </head>
 <body>
