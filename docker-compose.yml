@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./ajm-backend
+    container_name: backend
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=root
+      - DB_PASS=password
+      - DB_NAME=ajm_services_db
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mysql
+    restart: always
+
+  frontend:
+    build:
+      context: ./ajm-frontend
+    container_name: frontend
+    ports:
+      - "8083:8080"
+
+  mysql:
+    image: mysql:latest
+    container_name: ajm-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: ajm
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  mysql_data:
