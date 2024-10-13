@@ -16,4 +16,4 @@ RUN npm install -g serve
 
 EXPOSE 8083
 
-CMD ["serve", "-s", "dist"]
+CMD ["serve", "-s", "dist", "-l", "8083", "--single"]
