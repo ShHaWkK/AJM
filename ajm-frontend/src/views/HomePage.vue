@@ -15,6 +15,18 @@
       </div>
     </section>
 
+    <!-- Section Pourquoi Nous Choisir -->
+    <section class="why-choose-us">
+      <h2 class="section-title">Pourquoi Nous Choisir ?</h2>
+      <div class="advantages">
+        <div class="advantage-card" v-for="advantage in advantages" :key="advantage.title" :class="'animate-on-scroll'">
+          <i :class="advantage.icon" class="advantage-icon"></i>
+          <h3>{{ advantage.title }}</h3>
+          <p>{{ advantage.description }}</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Section des services -->
     <section class="services">
       <h2 class="section-title">Nos Services</h2>
@@ -39,23 +51,36 @@
         </div>
       </div>
     </section>
+
+    <!-- Ajout de la section Footer -->
+    <FooterPage />
   </div>
 </template>
 
 <script>
+import FooterPage from './FooterPage.vue';
+
 export default {
   data() {
     return {
+      advantages: [
+        { title: 'Expertise reconnue', description: 'Dans le domaine de la cybersécurité.', icon: 'fas fa-shield-alt' },
+        { title: 'Support client 24/7', description: 'Assistance disponible à tout moment.', icon: 'fas fa-headset' },
+        { title: 'Solutions personnalisées', description: 'Adaptées à vos besoins spécifiques.', icon: 'fas fa-cogs' },
+      ],
       services: [
         { title: 'Cybersécurité', description: 'Protection avancée et prévention des menaces.', icon: 'fas fa-shield-alt', image: '/images/security.png' },
         { title: 'Création de Sites', description: 'Des sites modernes et adaptatifs.', icon: 'fas fa-code', image: '/images/technologie.png' },
         { title: 'Maintenance', description: 'Assistance et mises à jour continues.', icon: 'fas fa-tools', image: '/images/support.png' }
       ],
       founders: [
-        { name: 'Alexandre UZAN', bio: 'Fondateur et expert en cybersécurité.', image: '/images/founder1.jpg' },
+        { name: 'Alexandre UZAN', bio: 'Fondateur et expert en cybersécurité.', image: '/images/Alexandre.jpg' },
         { name: 'Marie Curie', bio: 'Co-fondatrice et directrice technique.', image: '/images/founder2.jpg' }
       ]
     };
+  }, 
+  components: {
+    FooterPage
   }
 };
 </script>
@@ -139,6 +164,18 @@ html, body {
   transform: scale(1.05);
 }
 
+/* Animations de défilement */
+[v-scroll-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[v-scroll-reveal].in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Section Services */
 .services {
   display: flex;
@@ -188,6 +225,49 @@ html, body {
   font-size: 2.5rem;
   color: #00ffc8;
   margin-bottom: 1rem;
+}
+
+/* Section Pourquoi Nous Choisir */
+.why-choose-us {
+  padding: 4rem 1rem;
+  background-color: #0d1b2a;
+  text-align: center;
+}
+
+.advantages {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.advantage-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  width: 240px;
+  text-align: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.advantage-card:hover {
+  transform: scale(1.05);
+}
+
+.advantage-icon {
+  font-size: 2.5rem;
+  color: #00ffc8;
+  margin-bottom: 1rem;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 /* Section Fondateurs */
