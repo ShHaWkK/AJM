@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <!-- Section avec la vidéo de fond -->
     <section class="hero">
       <video autoplay muted loop class="background-video">
         <source src="/videos/first-page.mp4?version=1" type="video/mp4" />
@@ -7,16 +8,35 @@
       </video>
       <div class="content">
         <h1 class="title">Sécurisez, Créez, et Maintenez avec AJM</h1>
-        <p class="subtitle"><span class="typing-animation">La cybersécurité, l'innovation et la maintenance</span></p>
-        <button class="cta" @click.prevent="$router.push('/services')">Nos Services</button>
+        <p class="subtitle">
+          <span class="typing-animation">La cybersécurité, l'innovation et la maintenance</span>
+        </p>
+        <button class="cta" @click.prevent="$router.push('/services')">Découvrez nos Services</button>
       </div>
     </section>
+
+    <!-- Section des services -->
     <section class="services">
-      <div class="service-card" v-for="service in services" :key="service.title">
-        <img :src="service.image" alt="" class="service-icon" />
-        <i :class="service.icon"></i>
-        <h2>{{ service.title }}</h2>
-        <p>{{ service.description }}</p>
+      <h2 class="section-title">Nos Services</h2>
+      <div class="service-cards">
+        <div class="service-card" v-for="service in services" :key="service.title">
+          <img :src="service.image" alt="" class="service-icon" />
+          <i :class="service.icon"></i>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section des fondateurs -->
+    <section class="founders">
+      <h2 class="section-title">À Propos des Fondateurs</h2>
+      <div class="founder-cards">
+        <div class="founder-card" v-for="founder in founders" :key="founder.name">
+          <img :src="founder.image" :alt="founder.name" class="founder-image" />
+          <h3>{{ founder.name }}</h3>
+          <p>{{ founder.bio }}</p>
+        </div>
       </div>
     </section>
   </div>
@@ -28,8 +48,12 @@ export default {
     return {
       services: [
         { title: 'Cybersécurité', description: 'Protection avancée et prévention des menaces.', icon: 'fas fa-shield-alt', image: '/images/security.png' },
-        { title: 'Création de Sites', description: 'Des sites modernes et adaptatifs.', icon: 'fas fa-code', image: '/images/technologie.jpg' },
+        { title: 'Création de Sites', description: 'Des sites modernes et adaptatifs.', icon: 'fas fa-code', image: '/images/technologie.png' },
         { title: 'Maintenance', description: 'Assistance et mises à jour continues.', icon: 'fas fa-tools', image: '/images/support.png' }
+      ],
+      founders: [
+        { name: 'Alexandre UZAN', bio: 'Fondateur et expert en cybersécurité.', image: '/images/founder1.jpg' },
+        { name: 'Marie Curie', bio: 'Co-fondatrice et directrice technique.', image: '/images/founder2.jpg' }
       ]
     };
   }
@@ -37,23 +61,26 @@ export default {
 </script>
 
 <style scoped>
+/* Styles généraux */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.home {
-  display: flex;
-  flex-direction: column;
-  color: #fff;
+html, body {
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #0a1a2e;
 }
 
+.home {
+  color: #fff;
+}
+
+/* Section Hero (Vidéo de fond) */
 .hero {
-  flex: 1;
   position: relative;
   display: flex;
   align-items: center;
@@ -67,7 +94,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   object-fit: cover;
   z-index: -1;
@@ -112,23 +139,38 @@ export default {
   transform: scale(1.05);
 }
 
+/* Section Services */
 .services {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   padding: 3rem 1rem;
   background-color: #0a1a2e;
 }
 
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Cartes des services */
+.service-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
 .service-card {
   background: rgba(255, 255, 255, 0.1);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 15px;
   width: 240px;
   text-align: center;
   transition: transform 0.3s ease;
-  margin: 1rem;
-  color: #fff;
 }
 
 .service-card:hover {
@@ -145,6 +187,44 @@ export default {
 .service-card i {
   font-size: 2.5rem;
   color: #00ffc8;
+  margin-bottom: 1rem;
+}
+
+/* Section Fondateurs */
+.founders {
+  padding: 3rem 1rem;
+  background-color: #0d1b2a;
+}
+
+.founder-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.founder-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 15px;
+  width: 240px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.founder-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 255, 200, 0.4);
+}
+
+.founder-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
   margin-bottom: 1rem;
 }
 
