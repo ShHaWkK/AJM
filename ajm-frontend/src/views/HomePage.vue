@@ -24,9 +24,9 @@ export default {
   data() {
     return {
       services: [
-      { title: 'Cybersécurité', description: 'Protection avancée et prévention des menaces.', icon: 'fas fa-shield-alt', image: 'images/security.png' },
-      { title: 'Création de Sites', description: 'Des sites modernes et adaptatifs.', icon: 'fas fa-code', image: 'images/technologie.jpg' },
-        { title: 'Maintenance', description: 'Assistance et mises à jour continues.', icon: 'fas fa-tools', image: 'images/support.png' }
+      { title: 'Cybersécurité', description: 'Protection avancée et prévention des menaces.', icon: 'fas fa-shield-alt', image: '/images/security.png' },
+      { title: 'Création de Sites', description: 'Des sites modernes et adaptatifs.', icon: 'fas fa-code', image: '/images/technologie.jpg' },
+        { title: 'Maintenance', description: 'Assistance et mises à jour continues.', icon: 'fas fa-tools', image: '/images/support.png' }
       ]
     };
   }
@@ -60,14 +60,14 @@ export default {
   from { width: 0; }
   to { width: 100%; }
 }
-.background-animation {
+/* .background-animation {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url('images/background-animation.png') no-repeat center;
+  background: url('/images/background-animation.png') repeat;
   opacity: 0.2;
   animation: float 15s ease-in-out infinite;
-}
+} */
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
