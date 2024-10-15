@@ -1,4 +1,3 @@
-// config/db.js
 const mysql = require('mysql2');
 require('dotenv').config();
 
@@ -17,7 +16,7 @@ function handleDisconnect() {
     connection.connect((err) => {
         if (err) {
             console.error('Error connecting to the database:', err);
-            setTimeout(handleDisconnect, 2000); // Reconnexion après 2 secondes
+            setTimeout(handleDisconnect, 2000); // Reconnexion après 2 secondes en cas d'erreur
         } else {
             console.log('Connected to the database');
         }
@@ -26,7 +25,7 @@ function handleDisconnect() {
     connection.on('error', (err) => {
         console.error('Database error:', err);
         if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-            handleDisconnect();
+            handleDisconnect(); // Reconnecte en cas de perte de connexion
         } else {
             throw err;
         }

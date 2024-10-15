@@ -185,5 +185,5 @@ CREATE TABLE reports (
 
 INSERT INTO roles (name, description) VALUES
 ('admin', 'Administrateur du système'),
-('client', 'Client de AJM Services'),
+('client', 'Client de AJM Tech'),
 ('freelancer', 'Freelancer inscrit sur AJM Services');
