@@ -42,7 +42,7 @@
 
     <!-- Section des fondateurs -->
     <section class="founders">
-      <h2 class="section-title">À Propos des Fondateurs</h2>
+      <h2 class="section-title">L'Equipe de AJM Tech</h2>
       <div class="founder-cards">
         <div class="founder-card" v-for="founder in founders" :key="founder.name">
           <img :src="founder.image" :alt="founder.name" class="founder-image" />
@@ -70,12 +70,11 @@ export default {
       ],
       services: [
         { title: 'Cybersécurité', description: 'Protection avancée et prévention des menaces.', icon: 'fas fa-shield-alt', image: '/images/security.png' },
-        { title: 'Création de Sites', description: 'Des sites modernes et adaptatifs.', icon: 'fas fa-code', image: '/images/technologie.png' },
+        { title: 'Création de Sites', description: 'Des sites modernes et adaptatifs.', icon: 'fas fa-code', image: '/images/site.png' },
         { title: 'Maintenance', description: 'Assistance et mises à jour continues.', icon: 'fas fa-tools', image: '/images/support.png' }
       ],
       founders: [
         { name: 'Alexandre UZAN', bio: 'Fondateur et expert en cybersécurité.', image: '/images/Alexandre.jpg' },
-        { name: 'Marie Curie', bio: 'Co-fondatrice et directrice technique.', image: '/images/founder2.jpg' }
       ]
     };
   },
