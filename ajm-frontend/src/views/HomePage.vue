@@ -19,7 +19,7 @@
     <section class="why-choose-us">
       <h2 class="section-title">Pourquoi Nous Choisir ?</h2>
       <div class="advantages">
-        <div class="advantage-card" v-for="advantage in advantages" :key="advantage.title" :class="'animate-on-scroll'">
+        <div class="advantage-card" v-for="advantage in advantages" :key="advantage.title">
           <i :class="advantage.icon" class="advantage-icon"></i>
           <h3>{{ advantage.title }}</h3>
           <p>{{ advantage.description }}</p>
@@ -78,7 +78,7 @@ export default {
         { name: 'Marie Curie', bio: 'Co-fondatrice et directrice technique.', image: '/images/founder2.jpg' }
       ]
     };
-  }, 
+  },
   components: {
     FooterPage
   }
@@ -97,7 +97,7 @@ html, body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  background-color: #0a1a2e;
+  background-color: #111B24; /* Harmonisation avec la vidéo */
 }
 
 .home {
@@ -164,34 +164,52 @@ html, body {
   transform: scale(1.05);
 }
 
-/* Animations de défilement */
-[v-scroll-reveal] {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-[v-scroll-reveal].in-view {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Section Services */
-.services {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem 1rem;
-  background-color: #0a1a2e;
+/* Section Pourquoi Nous Choisir */
+.why-choose-us {
+  padding: 4rem 1rem;
+  background-color: #111B24;
+  text-align: center;
 }
 
 .section-title {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.advantages {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.advantage-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  width: 240px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.advantage-card:hover {
+  transform: scale(1.05);
+}
+
+.advantage-icon {
+  font-size: 2.5rem;
+  color: #00ffc8;
+  margin-bottom: 1rem;
+}
+
+/* Section Services */
+.services {
+  padding: 4rem 1rem;
+  background-color: #111B24;
   text-align: center;
 }
 
-/* Cartes des services */
 .service-cards {
   display: flex;
   justify-content: center;
@@ -199,6 +217,7 @@ html, body {
   gap: 1.5rem;
   width: 100%;
   max-width: 1200px;
+  margin: 0 auto;
 }
 
 .service-card {
@@ -221,59 +240,11 @@ html, body {
   margin-bottom: 1rem;
 }
 
-.service-card i {
-  font-size: 2.5rem;
-  color: #00ffc8;
-  margin-bottom: 1rem;
-}
-
-/* Section Pourquoi Nous Choisir */
-.why-choose-us {
-  padding: 4rem 1rem;
-  background-color: #0d1b2a;
-  text-align: center;
-}
-
-.advantages {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.advantage-card {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 2rem;
-  border-radius: 15px;
-  width: 240px;
-  text-align: center;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.advantage-card:hover {
-  transform: scale(1.05);
-}
-
-.advantage-icon {
-  font-size: 2.5rem;
-  color: #00ffc8;
-  margin-bottom: 1rem;
-}
-
-.animate-on-scroll {
-  opacity: 0;
-}
-
-.animate-on-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
 /* Section Fondateurs */
 .founders {
-  padding: 3rem 1rem;
-  background-color: #0d1b2a;
+  padding: 4rem 1rem;
+  background-color: #111B24;
+  text-align: center;
 }
 
 .founder-cards {
@@ -282,7 +253,6 @@ html, body {
   align-items: center;
   flex-wrap: wrap;
   gap: 1.5rem;
-  width: 100%;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -308,6 +278,7 @@ html, body {
   margin-bottom: 1rem;
 }
 
+/* Effets Typing et FadeIn */
 @keyframes typing {
   from { width: 0; }
   to { width: 100%; }
