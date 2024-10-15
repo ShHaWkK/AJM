@@ -2,11 +2,11 @@
   <header>
     <nav class="navbar">
       <div class="navbar-brand">
-        <a href="#" @click.prevent="$router.push('/')">AJM Services</a>
+        <a href="#" @click.prevent="$router.push('/')">AJM Tech</a>
       </div>
       <ul class="navbar-links">
         <li><a @click.prevent="$router.push('/')">Accueil</a></li>
-        <li><a @click.prevent="$router.push('/quote')">Services</a></li>
+        <li><a @click.prevent="$router.push('/quote')">Demande de Devis</a></li>
         <li><a @click.prevent="$router.push('/contact')">Contact</a></li>
         <li><a @click.prevent="$router.push('/login')">Connexion/Inscription</a></li>
       </ul>
